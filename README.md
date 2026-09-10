@@ -1,6 +1,9 @@
-﻿# 🌱 Plants - Online Plant Store with Flora AI Assistant & Executive Admin Portal
+# 🌱 Plants - Online Plant Store with Flora AI Assistant & Executive Admin Portal
 
 A full-stack, responsive plant shopping platform featuring **Flora AI Customer Support & Plant Agent**, comprehensive **Executive Admin Management Center**, shopping cart, wishlist, and REST backend API.
+
+🌐 **Live Demo**: [https://helanbobby2005-dev.github.io/Plant/](https://helanbobby2005-dev.github.io/Plant/)  
+📁 **Repository**: [https://github.com/helanbobby2005-dev/GreenLeaf](https://github.com/helanbobby2005-dev/GreenLeaf)
 
 ---
 

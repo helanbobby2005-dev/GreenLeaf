@@ -6,7 +6,7 @@
 
 ### • Project Title
 **Plants: Intelligent Agentic AI E-Commerce Customer Support & Nursery Management Platform**  
-*(Deployment Repository: [GitHub - GreenLeaf / Plants](https://github.com/helanbobby2005-dev/GreenLeaf) | Live Demo: [GitHub Pages](https://helanbobby2005-dev.github.io/GreenLeaf/))*
+*(Deployment Repository: [GitHub - GreenLeaf / Plants](https://github.com/helanbobby2005-dev/GreenLeaf) | Live Demo: [https://helanbobby2005-dev.github.io/Plant/](https://helanbobby2005-dev.github.io/Plant/))*
 
 ### • Problem Statement
 In traditional e-commerce platforms—specifically botanical and nursery stores—customers face significant friction when navigating vast catalogs of botanical species. Common issues include:
@@ -121,7 +121,7 @@ sequenceDiagram
 
 Below is a visual representation of the deployed **Plants** shopping portal with the embedded **Flora AI Agent**:
 
-![Plants E-Commerce UI & Flora AI Agent](plants_store_ui_1789063037018.jpg)
+![Plants E-Commerce UI & Flora AI Agent](C:\Users\helan\.gemini\antigravity\brain\6ad3b81d-b206-4ba9-ad47-5a9d2530790e\plants_store_ui_1789063037018.jpg)
 
 #### Output Demonstrations:
 1. **Conversational Plant Search**:
@@ -179,4 +179,4 @@ The **Plants** project successfully demonstrates how Agentic AI customer support
    - Unsplash Botanical Photography Open Content Delivery Network.
 4. **Project Code Repository**:
    - GitHub Repository: [https://github.com/helanbobby2005-dev/GreenLeaf](https://github.com/helanbobby2005-dev/GreenLeaf)
-   - Live Deployment: [https://helanbobby2005-dev.github.io/GreenLeaf/](https://helanbobby2005-dev.github.io/GreenLeaf/)
+   - Live Deployment: [https://helanbobby2005-dev.github.io/Plant/](https://helanbobby2005-dev.github.io/Plant/)
