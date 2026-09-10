@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GreenLeaf - Online plant shopping store with Professional Admin Management & AI Assistant">
-<title>GreenLeaf | Plant Store & AI Assistant</title>
+<meta name="description" content="Plants - Online plant shopping store with Professional Admin Management & AI Assistant">
+<title>Plants | Online Store & AI Assistant</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1851,7 +1851,7 @@ footer{
 </div>
 
 <header class="navbar">
-    <button class="logo" onclick="showPage('home')"><i class="fa-solid fa-leaf"></i> GreenLeaf</button>
+    <button class="logo" onclick="showPage('home')"><i class="fa-solid fa-leaf"></i> Plants</button>
     <nav class="nav-links">
         <button id="nav-home" class="active" onclick="showPage('home')"><i class="fa-solid fa-house"></i> Home</button>
         <button id="nav-plants" onclick="showPage('plants')"><i class="fa-solid fa-seedling"></i> Plants</button>
@@ -1871,7 +1871,7 @@ footer{
     <div class="hero">
         <div class="hero-image">
             <div class="hero-content">
-                <div class="hero-small">Welcome to GreenLeaf</div>
+                <div class="hero-small">Welcome to Plants</div>
                 <h1>Bring Nature <span>Into Your Space</span></h1>
                 <p>Discover beautiful indoor, outdoor, flowering and succulent plants for your home, office and garden.</p>
                 <div class="hero-buttons">
@@ -2037,7 +2037,7 @@ footer{
     <div class="page-container">
         <div class="about-compact-box">
             <div class="about-header-compact">
-                <div><small style="text-transform:uppercase; font-weight:600;">About GreenLeaf</small><h1>Growing a Greener Future</h1><p>Online plant shopping crafted to make healthy plants simple and accessible.</p></div>
+                <div><small style="text-transform:uppercase; font-weight:600;">About Plants</small><h1>Growing a Greener Future</h1><p>Online plant shopping crafted to make healthy plants simple and accessible.</p></div>
                 <i class="fa-solid fa-seedling" style="font-size:36px; opacity:0.5;"></i>
             </div>
             <div class="about-features-grid">
@@ -2058,7 +2058,7 @@ footer{
                     <div><small>Get in touch</small><h1>Contact Us</h1><p style="font-size:11.5px;">Have a question? Our botany specialists are here to help.</p></div>
                     <div style="font-size:11px; display:flex; flex-direction:column; gap:6px;">
                         <div><i class="fa-solid fa-phone"></i> +91 98765 43210</div>
-                        <div><i class="fa-solid fa-envelope"></i> hello@greenleaf.com</div>
+                        <div><i class="fa-solid fa-envelope"></i> hello@plants.com</div>
                     </div>
                 </div>
                 <div>
@@ -2154,7 +2154,7 @@ footer{
     </div>
     <div class="ai-chat-messages" id="aiChatMessages">
         <div class="chat-bubble bot">
-            🌱 <b>Hello! I'm Flora, your GreenLeaf AI Assistant.</b><br>
+            🌱 <b>Hello! I'm Flora, your Plants AI Assistant.</b><br>
             I can search plant availability, compare prices, give watering advice, and check order statuses.
             <div class="ai-quick-prompts">
                 <button class="quick-chip" onclick="handleChipClick('Show plants under ₹500')">💰 Plants under ₹500</button>
@@ -2235,7 +2235,7 @@ footer{
 <div id="toast" class="toast"></div>
 
 <footer>
-    <div class="footer-content"><p>© 2026 GreenLeaf. Grow naturally.</p></div>
+    <div class="footer-content"><p>© 2026 Plants. Grow naturally.</p></div>
 </footer>
 
 <script>
@@ -2266,12 +2266,12 @@ const initialPlants = [
     { id:24, name:"Red Aglaonema", category:"indoor", price:799, oldPrice:999, discount:20, rating:4.8, reviews:139, image:"images/Red Aglaonema.jpg", description:"A beautiful low-maintenance foliage plant perfect for indoor spaces.", type:"Foliage", light:"Low to Medium", water:"Medium", suitable:"Office & Home" }
 ];
 
-let plants = JSON.parse(localStorage.getItem("greenleafPlants")) || [...initialPlants];
-let wishlist = JSON.parse(localStorage.getItem("greenleafWishlist")) || [];
-let cart = JSON.parse(localStorage.getItem("greenleafCart")) || [];
-let orders = JSON.parse(localStorage.getItem("greenleafOrders")) || [];
-let messages = JSON.parse(localStorage.getItem("greenleafMessages")) || [];
-let isAdminLoggedIn = JSON.parse(sessionStorage.getItem("greenleafAdminAuth")) || false;
+let plants = JSON.parse(localStorage.getItem("plantsData")) || JSON.parse(localStorage.getItem("greenleafPlants")) || [...initialPlants];
+let wishlist = JSON.parse(localStorage.getItem("plantsWishlist")) || JSON.parse(localStorage.getItem("greenleafWishlist")) || [];
+let cart = JSON.parse(localStorage.getItem("plantsCart")) || JSON.parse(localStorage.getItem("greenleafCart")) || [];
+let orders = JSON.parse(localStorage.getItem("plantsOrders")) || JSON.parse(localStorage.getItem("greenleafOrders")) || [];
+let messages = JSON.parse(localStorage.getItem("plantsMessages")) || JSON.parse(localStorage.getItem("greenleafMessages")) || [];
+let isAdminLoggedIn = JSON.parse(sessionStorage.getItem("plantsAdminAuth")) || JSON.parse(sessionStorage.getItem("greenleafAdminAuth")) || false;
 let currentPlant = null;
 let pendingDelete = { type: null, id: null };
 let backendAvailable = false;
@@ -2286,7 +2286,7 @@ async function syncWithBackend(){
                 plants = serverPlants;
             }
             backendAvailable = true;
-            console.log("Connected to GreenLeaf backend API");
+            console.log("Connected to Plants backend API");
         }
     }catch(e){
         console.log("Running in client / offline mode");
@@ -2295,11 +2295,11 @@ async function syncWithBackend(){
 }
 
 function saveData(){
-    localStorage.setItem("greenleafPlants", JSON.stringify(plants));
-    localStorage.setItem("greenleafWishlist", JSON.stringify(wishlist));
-    localStorage.setItem("greenleafCart", JSON.stringify(cart));
-    localStorage.setItem("greenleafOrders", JSON.stringify(orders));
-    localStorage.setItem("greenleafMessages", JSON.stringify(messages));
+    localStorage.setItem("plantsData", JSON.stringify(plants));
+    localStorage.setItem("plantsWishlist", JSON.stringify(wishlist));
+    localStorage.setItem("plantsCart", JSON.stringify(cart));
+    localStorage.setItem("plantsOrders", JSON.stringify(orders));
+    localStorage.setItem("plantsMessages", JSON.stringify(messages));
     if(backendAvailable){
         fetch("/api/plants", { method:"PUT", headers:{"Content-Type":"application/json"}, body:JSON.stringify(plants) }).catch(()=>{});
         fetch("/api/orders", { method:"PUT", headers:{"Content-Type":"application/json"}, body:JSON.stringify(orders) }).catch(()=>{});
@@ -2575,7 +2575,7 @@ async function handleAdminLogin(e){
     }
     if(auth){
         isAdminLoggedIn = true;
-        sessionStorage.setItem("greenleafAdminAuth", "true");
+        sessionStorage.setItem("plantsAdminAuth", "true");
         closeAdminLogin();
         updateAdminNavState();
         showNotification("Admin Authenticated", "Welcome back, Administrator!");
@@ -2587,6 +2587,7 @@ async function handleAdminLogin(e){
 
 function adminLogout(){
     isAdminLoggedIn = false;
+    sessionStorage.removeItem("plantsAdminAuth");
     sessionStorage.removeItem("greenleafAdminAuth");
     updateAdminNavState();
     showToast("Logged out");

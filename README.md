@@ -1,4 +1,4 @@
-﻿# 🌱 GreenLeaf - Plant E-Commerce Store with Flora AI Assistant & Admin Portal
+﻿# 🌱 Plants - Online Plant Store with Flora AI Assistant & Executive Admin Portal
 
 A full-stack, responsive plant shopping platform featuring **Flora AI Customer Support & Plant Agent**, comprehensive **Executive Admin Management Center**, shopping cart, wishlist, and REST backend API.
 
@@ -39,8 +39,8 @@ A full-stack, responsive plant shopping platform featuring **Flora AI Customer S
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/helanbobby2005-dev/greenleaf-plant-store.git
-   cd greenleaf-plant-store
+   git clone https://github.com/helanbobby2005-dev/GreenLeaf.git
+   cd GreenLeaf
    ```
 
 2. Install dependencies:
@@ -55,31 +55,10 @@ A full-stack, responsive plant shopping platform featuring **Flora AI Customer S
 
 4. Open in your browser:
    - **Storefront & Flora AI**: [http://localhost:5000](http://localhost:5000)
-   - **Admin Login**: Click "Admin" on the top right or go to [http://localhost:5000](http://localhost:5000)
+   - **Admin Security Portal**: Click "Admin" on the top navigation bar or go to [http://localhost:5000](http://localhost:5000)
    - **Default Credentials**: Username: `admin` | Password: `admin123`
 
 ---
 
-## ☁️ Deployment Options
-
-### Option A: Free 1-Click Hosting on Render.com (Recommended for Full-Stack)
-1. Push this repository to your GitHub account.
-2. Go to [Render.com](https://render.com) and create a **New Web Service**.
-3. Connect your GitHub repository.
-4. Set:
-   - **Runtime**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-5. Click **Deploy Web Service**. Render gives you a live HTTPS URL!
-
-### Option B: GitHub Pages (Frontend with AI Assistant)
-1. Go to your repository on GitHub.
-2. Navigate to **Settings** > **Pages**.
-3. Under **Branch**, select `main` (or `master`) and `/ (root)`.
-4. Click **Save**. Your site will be live at `https://<username>.github.io/<repo-name>/`.
-   *(Note: On GitHub Pages, data and Flora AI run client-side with localStorage persistence).*
-
----
-
 ## 📄 License
-MIT License © 2026 GreenLeaf. Grow naturally.
+MIT License © 2026 Plants. Grow naturally.

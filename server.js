@@ -1,4 +1,4 @@
-﻿// GreenLeaf Node.js Express Backend Server
+// Plants Node.js Express Backend Server
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -244,7 +244,7 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🌱 GreenLeaf Plant Store Server running on port ${PORT}`);
+  console.log(`🌱 Plants Store Server running on port ${PORT}`);
   console.log(`🌿 Storefront: http://localhost:${PORT}`);
   console.log(`🔐 Admin: http://localhost:${PORT} (Username: admin | Password: admin123)`);
 });

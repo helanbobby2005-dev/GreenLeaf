@@ -1,7 +1,7 @@
-﻿{
-  "name": "greenleaf-backend",
+{
+  "name": "plants-backend",
   "version": "1.0.0",
-  "description": "GreenLeaf Plant Store Backend and Admin Portal",
+  "description": "Plants Store Backend and Admin Portal",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
