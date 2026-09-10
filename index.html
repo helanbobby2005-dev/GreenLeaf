@@ -1246,6 +1246,181 @@ img{
 }
 
 /* =========================================================
+   CUSTOMER ORDERS & TRACKING PAGE
+========================================================= */
+.orders-page-layout{
+    max-width:1050px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+.orders-header-box{
+    background:linear-gradient(130deg, #1b4d27, #2e793e);
+    color:white;
+    border-radius:14px;
+    padding:22px 26px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    box-shadow:0 8px 24px rgba(27,77,39,0.15);
+}
+.orders-header-box h1{
+    font-size:21px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.orders-header-box p{
+    font-size:12.5px;
+    color:#d5ebd8;
+    margin-top:4px;
+}
+.order-track-search{
+    background:white;
+    border:1px solid #dce8dd;
+    border-radius:12px;
+    padding:18px 22px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.03);
+}
+.order-track-search h3{
+    font-size:14.5px;
+    color:#1c4d28;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.track-input-group{
+    display:flex;
+    gap:10px;
+    max-width:600px;
+}
+.track-input-group input{
+    flex:1;
+    padding:9px 13px;
+    border:1px solid #c8dccb;
+    border-radius:8px;
+    font-size:12.5px;
+    outline:none;
+}
+.track-input-group input:focus{
+    border-color:#2a703a;
+}
+.order-stepper-wrap{
+    background:#f8fbf8;
+    border:1px solid #e2ebe3;
+    border-radius:10px;
+    padding:16px 20px;
+    margin:14px 0;
+}
+.order-stepper{
+    display:flex;
+    justify-content:space-between;
+    position:relative;
+}
+.order-stepper::before{
+    content:"";
+    position:absolute;
+    top:16px;
+    left:40px;
+    right:40px;
+    height:3px;
+    background:#e0eae1;
+    z-index:1;
+}
+.step-node{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+    width:100px;
+    text-align:center;
+}
+.step-circle{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#e0eae1;
+    color:#738876;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:700;
+}
+.step-node.completed .step-circle{
+    background:#2b753b;
+    color:white;
+}
+.step-node.active .step-circle{
+    background:#3b82f6;
+    color:white;
+    box-shadow:0 0 0 4px rgba(59,130,246,0.2);
+}
+.step-node.cancelled .step-circle{
+    background:#ef4444;
+    color:white;
+}
+.step-title{
+    font-size:11px;
+    font-weight:600;
+    color:#415445;
+}
+.customer-order-card{
+    background:white;
+    border:1px solid #dce8dd;
+    border-radius:12px;
+    padding:18px 22px;
+    margin-bottom:14px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.02);
+    transition:all 0.2s ease;
+}
+.customer-order-card:hover{
+    border-color:#b4d6b9;
+}
+.customer-order-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:12px;
+    border-bottom:1px solid #edf2ed;
+    flex-wrap:wrap;
+    gap:10px;
+}
+.customer-order-items{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:12px 0;
+    border-bottom:1px solid #edf2ed;
+}
+.customer-item-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.customer-item-row img{
+    width:48px;
+    height:48px;
+    border-radius:8px;
+    object-fit:cover;
+}
+.customer-order-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:12px;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+/* =========================================================
    ADMIN DASHBOARD
 ========================================================= */
 .admin-dashboard{
@@ -1855,6 +2030,7 @@ footer{
     <nav class="nav-links">
         <button id="nav-home" class="active" onclick="showPage('home')"><i class="fa-solid fa-house"></i> Home</button>
         <button id="nav-plants" onclick="showPage('plants')"><i class="fa-solid fa-seedling"></i> Plants</button>
+        <button id="nav-orders" onclick="showPage('orders')"><i class="fa-solid fa-truck-fast"></i> My Orders</button>
         <button id="nav-about" onclick="showPage('about')"><i class="fa-solid fa-circle-info"></i> About</button>
         <button id="nav-contact" onclick="showPage('contact')"><i class="fa-solid fa-envelope"></i> Contact</button>
         <button id="nav-admin" onclick="checkAdminNav()"><i class="fa-solid fa-shield-halved"></i> Admin Portal</button>
@@ -2032,7 +2208,45 @@ footer{
     </div>
 </section>
 
-<!-- 7. ABOUT -->
+<!-- 7. MY ORDERS & TRACK ORDER PAGE -->
+<section id="ordersPage" class="page">
+    <div class="page-container">
+        <div class="orders-page-layout">
+            <div class="orders-header-box">
+                <div>
+                    <h1><i class="fa-solid fa-truck-fast"></i> My Orders & Live Tracking</h1>
+                    <p>Track your delivery status in real time and inspect your purchased plants.</p>
+                </div>
+                <button class="secondary-btn" onclick="showPage('plants')" style="background:rgba(255,255,255,0.18); color:white; border:1px solid rgba(255,255,255,0.35);">
+                    <i class="fa-solid fa-cart-plus"></i> Shop More Plants
+                </button>
+            </div>
+
+            <!-- Quick Order Tracking Search -->
+            <div class="order-track-search">
+                <h3><i class="fa-solid fa-magnifying-glass"></i> Instant Order Tracker</h3>
+                <p style="font-size:12px; color:#627967; margin-bottom:10px;">Enter your Order ID (e.g. GL-123456) to track live courier status:</p>
+                <div class="track-input-group">
+                    <input type="text" id="trackOrderIdInput" placeholder="e.g. GL-582914">
+                    <button class="primary-btn" onclick="trackOrderDirectly()"><i class="fa-solid fa-location-dot"></i> Track</button>
+                </div>
+                <div id="quickTrackResult" style="margin-top:14px; display:none;"></div>
+            </div>
+
+            <!-- Placed Orders History -->
+            <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                    <h3 style="font-size:16px; color:#1b4a25; display:flex; align-items:center; gap:8px;">
+                        <i class="fa-solid fa-clock-rotate-left"></i> Your Placed Orders (<span id="customerOrderCount">0</span>)
+                    </h3>
+                </div>
+                <div id="customerOrdersContainer"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. ABOUT -->
 <section id="aboutPage" class="page">
     <div class="page-container">
         <div class="about-compact-box">
@@ -2329,15 +2543,147 @@ function renderStoreData(){
 }
 
 function showPage(pageName){
+    // Map route aliases
+    if(pageName === "order") pageName = "orders";
     if(pageName === "admin" && !isAdminLoggedIn){ openAdminLogin(); return; }
+
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    const target = document.getElementById(pageName + "Page");
+    
+    // Safety check: if target page does not exist, default to homePage so screen NEVER goes blank!
+    let target = document.getElementById(pageName + "Page");
+    if(!target){
+        target = document.getElementById("homePage");
+        pageName = "home";
+    }
     if(target) target.classList.add("active");
+
     document.querySelectorAll(".nav-links button").forEach(b => b.classList.remove("active"));
     const activeNav = document.getElementById("nav-" + pageName);
     if(activeNav) activeNav.classList.add("active");
+
     if(pageName === "admin") renderAdminDashboard();
+    if(pageName === "orders") renderCustomerOrders();
     window.scrollTo({ top:0, behavior:"smooth" });
+}
+
+function renderCustomerOrders(){
+    const container = document.getElementById("customerOrdersContainer");
+    const countEl = document.getElementById("customerOrderCount");
+    if(countEl) countEl.innerText = orders.length;
+    if(!container) return;
+
+    if(orders.length === 0){
+        container.innerHTML = `
+            <div class="empty-page" style="padding:40px 20px; text-align:center; background:white; border:1px solid #dce8dd; border-radius:12px;">
+                <i class="fa-solid fa-box-open" style="font-size:42px; color:#95ab99; margin-bottom:12px;"></i>
+                <h3 style="color:#204b2b; margin-bottom:6px;">No Orders Placed Yet</h3>
+                <p style="color:#6b7e70; font-size:12.5px; margin-bottom:16px;">You have not placed any plant orders yet. Start exploring our botanical collection!</p>
+                <button class="primary-btn" onclick="showPage('plants')"><i class="fa-solid fa-leaf"></i> Explore Plants Now</button>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = orders.map(ord => {
+        const status = ord.status || "Processing";
+        const isProcessing = status === "Processing";
+        const isShipped = status === "Shipped";
+        const isDelivered = status === "Delivered";
+        const isCancelled = status === "Cancelled";
+
+        return `
+        <article class="customer-order-card">
+            <div class="customer-order-header">
+                <div>
+                    <span style="font-size:11px; text-transform:uppercase; letter-spacing:0.5px; color:#6b7e70; font-weight:600;">Order ID</span>
+                    <h3 style="color:#1a4d26; font-size:15px; margin-top:2px;">#${ord.orderId}</h3>
+                    <small style="color:#809585; font-size:11px;"><i class="fa-regular fa-clock"></i> Placed on ${ord.date}</small>
+                </div>
+                <div style="text-align:right;">
+                    <span class="badge-status status-${status.toLowerCase()}">${status}</span>
+                    <div style="font-size:14px; font-weight:700; color:#1a4d26; margin-top:4px;">₹${ord.total}</div>
+                </div>
+            </div>
+
+            <!-- Stepper Progress Tracker -->
+            <div class="order-stepper-wrap">
+                <div class="order-stepper">
+                    <div class="step-node ${isCancelled ? 'cancelled' : 'completed'}">
+                        <div class="step-circle"><i class="fa-solid ${isCancelled ? 'fa-xmark' : 'fa-check'}"></i></div>
+                        <span class="step-title">Order Placed</span>
+                    </div>
+                    <div class="step-node ${isCancelled ? 'cancelled' : (isShipped || isDelivered ? 'completed' : (isProcessing ? 'active' : ''))}">
+                        <div class="step-circle"><i class="fa-solid fa-truck"></i></div>
+                        <span class="step-title">${isCancelled ? 'Cancelled' : 'Shipped / In Transit'}</span>
+                    </div>
+                    <div class="step-node ${isCancelled ? 'cancelled' : (isDelivered ? 'completed' : '')}">
+                        <div class="step-circle"><i class="fa-solid fa-house-chimney"></i></div>
+                        <span class="step-title">Delivered</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Items in this order -->
+            <div class="customer-order-items">
+                ${(ord.items || []).map(it => `
+                    <div class="customer-item-row">
+                        <img src="${it.image || 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=400&q=80'}" alt="${it.name}" onerror="this.src='https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=400&q=80'">
+                        <div style="flex:1;">
+                            <h5 style="font-size:13px; color:#1a4d26; margin-bottom:2px;">${it.name}</h5>
+                            <small style="color:#6b7e70;">Quantity: ${it.quantity || 1} &bull; Price: ₹${it.price}</small>
+                        </div>
+                        <div style="font-weight:600; font-size:13px; color:#22552e;">₹${it.price * (it.quantity || 1)}</div>
+                    </div>
+                `).join('')}
+            </div>
+
+            <div class="customer-order-footer">
+                <div style="font-size:11.5px; color:#5b6e60;">
+                    <i class="fa-solid fa-location-dot" style="color:#2a703a;"></i> Deliver to: <strong>${ord.customer ? ord.customer.name : 'Customer'}</strong> (${ord.customer ? (ord.customer.city || '') : ''}) &bull; Payment: <strong>${ord.payment || 'UPI'}</strong>
+                </div>
+                <button class="secondary-btn" style="padding:6px 14px; font-size:11.5px;" onclick="openAIChat('Track my order ${ord.orderId}')">
+                    <i class="fa-solid fa-robot"></i> Ask Flora AI
+                </button>
+            </div>
+        </article>
+        `;
+    }).join("");
+}
+
+function trackOrderDirectly(){
+    const input = document.getElementById("trackOrderIdInput");
+    const resultBox = document.getElementById("quickTrackResult");
+    if(!input || !resultBox) return;
+
+    const q = input.value.trim().toUpperCase();
+    if(!q){
+        showToast("Please enter an Order ID to track.");
+        return;
+    }
+
+    const ord = orders.find(o => o.orderId.toUpperCase() === q || o.orderId.toUpperCase() === "GL-" + q);
+    resultBox.style.display = "block";
+
+    if(!ord){
+        resultBox.innerHTML = `
+            <div style="background:#fff3f2; border:1px solid #ffd0cc; border-radius:8px; padding:12px 16px; color:#a1261d; font-size:12px;">
+                <i class="fa-solid fa-circle-exclamation"></i> No order found matching <strong>"${escapeHtml(q)}"</strong>. Please check your order ID or ask Flora AI for assistance.
+            </div>
+        `;
+        return;
+    }
+
+    const status = ord.status || "Processing";
+    resultBox.innerHTML = `
+        <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:14px 18px; color:#14532d;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:6px;">
+                <strong style="font-size:13.5px;"><i class="fa-solid fa-circle-check" style="color:#16a34a;"></i> Order #${ord.orderId} Found!</strong>
+                <span class="badge-status status-${status.toLowerCase()}">${status}</span>
+            </div>
+            <p style="font-size:12px; margin-bottom:6px;"><strong>Status:</strong> ${status === 'Delivered' ? 'Delivered safely to your address.' : (status === 'Shipped' ? 'In transit with Express Logistics.' : 'Order confirmed and being prepared at our nursery.')}</p>
+            <p style="font-size:11.5px; color:#406349;">Placed on ${ord.date} &bull; Total: ₹${ord.total} (${ord.payment}) &bull; ${ord.items.length} plant item(s)</p>
+        </div>
+    `;
 }
 
 function ratingStars(r){ const full = Math.floor(r || 5); return "★".repeat(full) + "☆".repeat(5 - full); }
@@ -2541,7 +2887,11 @@ function placeOrder(e){
     updateCounts();
     showNotification("Order Placed!", `Order #${orderId} confirmed successfully for ${name}.`);
     document.getElementById("checkoutForm").reset();
-    setTimeout(() => showPage("home"), 1600);
+    setTimeout(() => {
+        showPage("orders");
+        const trackInput = document.getElementById("trackOrderIdInput");
+        if(trackInput){ trackInput.value = orderId; trackOrderDirectly(); }
+    }, 1200);
 }
 
 function updateCounts(){
@@ -2873,20 +3223,22 @@ function processFloraAI(q){
             if(found){
                 return `📦 <b>Order Status (#${found.orderId})</b>:
                 <div class="ai-order-card">
-                    <b>Status:</b> <span style="color:#2f6e3c;">${found.status}</span><br>
-                    <b>Customer:</b> ${found.customer.name}<br>
+                    <b>Status:</b> <span style="color:#2f6e3c; font-weight:700;">${found.status}</span><br>
+                    <b>Customer:</b> ${found.customer ? found.customer.name : 'Customer'}<br>
                     <b>Total:</b> ₹${found.total}<br>
-                    <b>Items:</b> ${found.items.map(it => it.name).join(", ")}
+                    <b>Items:</b> ${(found.items || []).map(it => it.name).join(", ")}<br>
+                    <button class="view-btn" style="margin-top:8px; font-size:11px; padding:4px 10px; width:100%;" onclick="showPage('orders')"><i class="fa-solid fa-truck-fast"></i> View Full Order & Live Tracker</button>
                 </div>`;
-            } else return `🔍 Order <b>#${ordMatch[0].toUpperCase()}</b> not found.`;
+            } else return `🔍 Order <b>#${ordMatch[0].toUpperCase()}</b> not found. <button class="view-btn" style="margin-top:6px; font-size:11px; padding:4px 8px;" onclick="showPage('orders')">Open Orders Page</button>`;
         } else if(orders.length > 0){
             const lat = orders[0];
             return `📦 Your latest order (<b>#${lat.orderId}</b>):
             <div class="ai-order-card">
-                <b>Status:</b> ${lat.status} | <b>Total:</b> ₹${lat.total}<br>
-                <b>Delivery:</b> ${lat.customer.city}
+                <b>Status:</b> <span style="color:#2f6e3c; font-weight:700;">${lat.status}</span> | <b>Total:</b> ₹${lat.total}<br>
+                <b>Delivery:</b> ${lat.customer ? (lat.customer.city || '') : ''}<br>
+                <button class="view-btn" style="margin-top:8px; font-size:11px; padding:4px 10px; width:100%;" onclick="showPage('orders')"><i class="fa-solid fa-truck-fast"></i> View Full Order & Live Tracker</button>
             </div>`;
-        } else return "📦 No placed orders yet. You can track anytime with your Order ID.";
+        } else return `📦 No placed orders yet. You can track anytime with your Order ID on the <button class="view-btn" style="margin-top:4px; font-size:11px; padding:3px 8px;" onclick="showPage('orders')">Orders Page</button>.`;
     }
 
     // 2. Budget / Price queries
